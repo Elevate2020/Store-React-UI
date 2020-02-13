@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storeservice-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: storeservice-ui
+  template:
+    metadata:
+      labels:
+        app: storeservice-ui
+    spec:
+      containers:
+      - image: swaraj1123/elevate-ss-ui:latest
+        name: storeservice-ui
+        imagePullPolicy: Never
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: storeservice-ui-service
+spec:
+  selector:
+    app: storeservice-ui
+  ports:
+    - port: 3000
+      targetPort: 3000
