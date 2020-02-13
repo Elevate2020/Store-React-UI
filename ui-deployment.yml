@@ -13,9 +13,9 @@ spec:
         app: storeservice-ui
     spec:
       containers:
-      - image: swaraj1123/elevate-ss-ui:latest
+      - image: swaraj1123/ss-react-ui:latest
         name: storeservice-ui
-        imagePullPolicy: Never
+        imagePullPolicy: Always
 
 ---
 
