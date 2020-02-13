@@ -1,7 +1,8 @@
 node{
     stage('Initialize'){
       def dockerHome = tool 'docker'
-      env.PATH = "${dockerHome}/bin:${env.PATH}"
+      def npmHome = tool 'node'
+      env.PATH = "${dockerHome}/bin:{npmHome}/bin:${env.PATH}"
     }
     stage('Checkout'){
         git credentialsId: 'afb29c50-d501-4c1d-8852-ce1a6193e8a6', url: 'https://github.com/Elevate2020/Store-React-UI.git'
