@@ -11,14 +11,14 @@ node{
         sh 'npm install'
     }
     stage('Build docker Image'){
-        sh 'docker build -t swaraj1123/ss-react-ui:latest .'
+        sh 'docker build -t targetelevate/ss-react-ui:latest .'
     }
     stage('Docker Image push'){
-        withDockerRegistry(credentialsId: '064af0a5-cde4-480c-8a14-87eabe184f04', toolName: 'docker') {
-            sh 'docker push swaraj1123/ss-react-ui:latest'
+        withDockerRegistry(credentialsId: 'target, toolName: 'docker') {
+            sh 'docker push targetelevate/ss-react-ui:latest'
         }
     }
     stage('Kuberneetes Deploy'){
-        kubernetesDeploy configs: 'ui-deployment.yml, ui-ingress.yml', dockerCredentials: [[credentialsId: '064af0a5-cde4-480c-8a14-87eabe184f04']], enableConfigSubstitution: false, kubeConfig: [path: ''], kubeconfigId: 'e9d7ade7-21d9-4f64-ae80-891fd1b25713', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+        kubernetesDeploy configs: 'ui-deployment.yml, ui-ingress.yml', dockerCredentials: [[credentialsId: 'target']], enableConfigSubstitution: false, kubeConfig: [path: ''], kubeconfigId: 'minikube', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
     }
 }

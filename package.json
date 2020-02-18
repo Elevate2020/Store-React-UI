@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://storeservice-api-service:8080",
+  "proxy": "http://storeservice-api-service:8081",
   "eslintConfig": {
     "extends": "react-app"
   },

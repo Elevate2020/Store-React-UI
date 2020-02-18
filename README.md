@@ -11,19 +11,20 @@ Steps To run the Elevate2020_ReactUI:
 Setting The Proxy for the use of springboot API:
 
     Step1: Open the package.json [vi Elevate2020_ReacUI/package.json]
-           
+
     Step2: Add
-    
-           "proxy": "http://localhost:8080"
-              
-            If springboot API running in docker container then Add:
-               "proxy": "http://IP_Address_of_system:8080"
-              
+
+           "proxy": "http://localhost:8080" [For local testing]
+
+      If deployed in Kuberneetes,
+
+            "proxy": "<service-name>:<PORT>"
+
 
 To run the react app NodeJs should be installed in system:
 If NodeJs NOT installed follow the below Steps:
 
-Install NodeJs pacakage:
+Install NodeJs package:
 
         https://nodejs.org/en/
 
@@ -50,14 +51,11 @@ Step1: Write the dockerfile in root of App
         CMD ["npm", "start"]
 
 Step2: Build the docker image
-                       
-        docker build -t react-docker .
+
+        docker build -t ss-react-ui .
 
 Step3: run the image:
-                       
-        docker run -it -p 3000:3000 react-docker 
-           
-           
-           
-           
-           
+
+        docker run -it -p 3000:3000 ss-react-ui
+
+Step4: Validate the same in localhost:3000
