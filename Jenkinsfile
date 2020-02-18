@@ -14,7 +14,7 @@ node{
         sh 'docker build -t targetelevate/ss-react-ui:latest .'
     }
     stage('Docker Image push'){
-        withDockerRegistry(credentialsId: 'target, toolName: 'docker') {
+        withDockerRegistry(credentialsId: 'target', toolName: 'docker') {
             sh 'docker push targetelevate/ss-react-ui:latest'
         }
     }
