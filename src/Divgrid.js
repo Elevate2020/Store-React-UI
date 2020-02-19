@@ -44,13 +44,13 @@ export default function ComplexGrid(props) {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  {props.Items.city}
+                  {props.Items.name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                   {props.Items.address}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {props.Items.name}
+                  {props.Items.city}
                 </Typography>
               </Grid>
               <Grid item>

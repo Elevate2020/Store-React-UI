@@ -25,15 +25,13 @@ class App extends Component {
     let storeID = this.state.store_id;
     let cityName=this.state.city_name;
     let temp_array = [];
-    if (storeID == 6) {
-      for(let i=1;i<=5;i++){
-        let response = await fetch('/'+'BLR'+'/'+i);
-        let body = await response.json();
-        temp_array.push(body);
-      }
+    if (storeID == 8) {
+      let response = await fetch('/'+'MN/');
+      let body = await response.json();
+      temp_array = body;
     }
     else {
-      let response = await fetch('/'+'BLR'+'/'+storeID);
+      let response = await fetch('/'+'MN'+'/'+storeID);
       let body = await response.json();
       temp_array.push(body);
 
@@ -84,7 +82,9 @@ class App extends Component {
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-          <option value="6">ALL</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">ALL</option>
           </select>
 
           &nbsp;
@@ -116,7 +116,9 @@ class App extends Component {
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-            <option value="6">ALL</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">ALL</option>
             </select>
 
             &nbsp;
